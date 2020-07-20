@@ -1,0 +1,215 @@
+******************************************************************************
+                  TI ARM Linker PC v18.12.4                    
+******************************************************************************
+>> Linked Thu Jun  4 16:38:41 2020
+
+OUTPUT FILE NAME:   <gpio_implementation.out>
+ENTRY POINT SYMBOL: "_c_int00_noinit_noargs"  address: 00000fbd
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  FLASH                 00000000   00040000  0000100c  0003eff4  R  X
+  SRAM                  20000000   00008000  00000200  00007e00  RW X
+
+
+SEGMENT ALLOCATION MAP
+
+run origin  load origin   length   init length attrs members
+----------  ----------- ---------- ----------- ----- -------
+00000000    00000000    0000100c   0000100c    r-x
+  00000000    00000000    0000026c   0000026c    r-- .intvecs
+  0000026c    0000026c    00000d90   00000d90    r-x .text
+  00000ffc    00000ffc    00000010   00000010    r-- .const
+20000000    20000000    00000200   00000000    rw-
+  20000000    20000000    00000200   00000000    rw- .stack
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.intvecs   0    00000000    0000026c     
+                  00000000    0000026c     tm4c123gh6pm_startup_ccs.obj (.intvecs)
+
+.text      0    0000026c    00000d90     
+                  0000026c    00000560     main.obj (.text)
+                  000007cc    00000338     GPIO.obj (.text)
+                  00000b04    00000214     uart.obj (.text)
+                  00000d18    0000018c     keypad.obj (.text)
+                  00000ea4    0000009c     rtsv7M4_T_le_v4SPD16_eabi.lib : memcpy_t2.asm.obj (.text)
+                  00000f40    0000007a                                   : memset_t2.asm.obj (.text)
+                  00000fba    00000002     --HOLE-- [fill = 0]
+                  00000fbc    0000002c                                   : boot_cortex_m.c.obj (.text:_c_int00_noinit_noargs:_c_int00_noinit_noargs)
+                  00000fe8    0000000c     tm4c123gh6pm_startup_ccs.obj (.text)
+                  00000ff4    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : pre_init.c.obj (.text:_system_pre_init)
+                  00000ff8    00000004                                   : exit.c.obj (.text:abort:abort)
+
+.const     0    00000ffc    00000010     
+                  00000ffc    00000010     keypad.obj (.const:$P$T0$1)
+
+.cinit     0    00000000    00000000     UNINITIALIZED
+
+.init_array 
+*          0    00000000    00000000     UNINITIALIZED
+
+.stack     0    20000000    00000200     UNINITIALIZED
+                  20000000    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : boot_cortex_m.c.obj (.stack)
+                  20000004    000001fc     --HOLE--
+
+MODULE SUMMARY
+
+       Module                         code   ro data   rw data
+       ------                         ----   -------   -------
+    .\
+       main.obj                       1376   0         0      
+       GPIO.obj                       824    0         0      
+       tm4c123gh6pm_startup_ccs.obj   12     620       0      
+       uart.obj                       532    0         0      
+       keypad.obj                     396    16        0      
+    +--+------------------------------+------+---------+---------+
+       Total:                         3140   636       0      
+                                                              
+    C:\ti\ccs930\ccs\tools\compiler\ti-cgt-arm_18.12.4.LTS\lib\rtsv7M4_T_le_v4SPD16_eabi.lib
+       memcpy_t2.asm.obj              156    0         0      
+       memset_t2.asm.obj              122    0         0      
+       boot_cortex_m.c.obj            44     0         0      
+       exit.c.obj                     4      0         0      
+       pre_init.c.obj                 4      0         0      
+    +--+------------------------------+------+---------+---------+
+       Total:                         330    0         0      
+                                                              
+       Stack:                         0      0         512    
+    +--+------------------------------+------+---------+---------+
+       Grand Total:                   3470   636       512    
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address   name                   
+-------   ----                   
+00000ff9  C$$EXIT                
+000008e9  GPIO_CONFIG_SET        
+00000abd  GPIO_PORT_Read         
+000007e5  GPIO_Pin_Dir_set       
+00000aa5  GPIO_Pin_Read          
+00000a6d  GPIO_Pin_Write         
+00000a8d  GPIO_Port_Write        
+0000084f  GPIO_aternate_fn       
+000007cd  GPIO_clk_enable        
+0000082f  GPIO_enable_Uart0      
+0000026d  LED_config             
+00000fe9  ResetISR               
+00000cdd  UART0Rx_char           
+00000b65  UART0TX_newLine        
+00000b75  UART0TX_space          
+00000b49  UART0Tx_char           
+00000c1d  UART0Tx_num            
+00000b99  UART0Tx_str            
+00000b05  UART0_INIT             
+00000b7f  UART0_take_enter_action
+20000200  __STACK_END            
+00000200  __STACK_SIZE           
+20000200  __STACK_TOP            
+ffffffff  __TI_pprof_out_hndl    
+ffffffff  __TI_prof_data_size    
+ffffffff  __TI_prof_data_start   
+00000000  __TI_static_base__     
+00000f41  __aeabi_memclr         
+00000f41  __aeabi_memclr4        
+00000f41  __aeabi_memclr8        
+00000ea5  __aeabi_memcpy         
+00000ea5  __aeabi_memcpy4        
+00000ea5  __aeabi_memcpy8        
+00000f43  __aeabi_memset         
+00000f43  __aeabi_memset4        
+00000f43  __aeabi_memset8        
+ffffffff  __binit__              
+ffffffff  __c_args__             
+UNDEFED   __mpu_init             
+20000000  __stack                
+00000fbd  _c_int00_noinit_noargs 
+00000ff5  _system_pre_init       
+00000ff9  abort                  
+00000293  arrToInt               
+ffffffff  binit                  
+0000086d  delayMs                
+000008af  delayUs                
+00000000  g_pfnVectors           
+000002d9  inArr                  
+00000bc9  invert                 
+00000d55  keypad_getkey          
+00000d19  keypad_init            
+00000e71  keypad_kbhit           
+00000325  main                   
+00000ea5  memcpy                 
+00000f49  memset                 
+00000acf  unlock                 
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address   name                   
+-------   ----                   
+00000000  __TI_static_base__     
+00000000  g_pfnVectors           
+00000200  __STACK_SIZE           
+0000026d  LED_config             
+00000293  arrToInt               
+000002d9  inArr                  
+00000325  main                   
+000007cd  GPIO_clk_enable        
+000007e5  GPIO_Pin_Dir_set       
+0000082f  GPIO_enable_Uart0      
+0000084f  GPIO_aternate_fn       
+0000086d  delayMs                
+000008af  delayUs                
+000008e9  GPIO_CONFIG_SET        
+00000a6d  GPIO_Pin_Write         
+00000a8d  GPIO_Port_Write        
+00000aa5  GPIO_Pin_Read          
+00000abd  GPIO_PORT_Read         
+00000acf  unlock                 
+00000b05  UART0_INIT             
+00000b49  UART0Tx_char           
+00000b65  UART0TX_newLine        
+00000b75  UART0TX_space          
+00000b7f  UART0_take_enter_action
+00000b99  UART0Tx_str            
+00000bc9  invert                 
+00000c1d  UART0Tx_num            
+00000cdd  UART0Rx_char           
+00000d19  keypad_init            
+00000d55  keypad_getkey          
+00000e71  keypad_kbhit           
+00000ea5  __aeabi_memcpy         
+00000ea5  __aeabi_memcpy4        
+00000ea5  __aeabi_memcpy8        
+00000ea5  memcpy                 
+00000f41  __aeabi_memclr         
+00000f41  __aeabi_memclr4        
+00000f41  __aeabi_memclr8        
+00000f43  __aeabi_memset         
+00000f43  __aeabi_memset4        
+00000f43  __aeabi_memset8        
+00000f49  memset                 
+00000fbd  _c_int00_noinit_noargs 
+00000fe9  ResetISR               
+00000ff5  _system_pre_init       
+00000ff9  C$$EXIT                
+00000ff9  abort                  
+20000000  __stack                
+20000200  __STACK_END            
+20000200  __STACK_TOP            
+ffffffff  __TI_pprof_out_hndl    
+ffffffff  __TI_prof_data_size    
+ffffffff  __TI_prof_data_start   
+ffffffff  __binit__              
+ffffffff  __c_args__             
+ffffffff  binit                  
+UNDEFED   __mpu_init             
+
+[57 symbols]
